@@ -58,7 +58,7 @@ function registerPet() {
     const name = prompt("🐾 ¿Cuál es el nombre de la mascota?");
     const species = prompt("🐾 ¿Qué especie es? (Perro, Gato, etc.)");
     const age = parseInt(prompt("🐾 ¿Cuál es la edad?"), 10);
-    const weight = parseFloat(prompt("🐾 ¿Cuál es el peso en kg?"), 100);
+    const weight = parseFloat(prompt("🐾 ¿Cuál es el peso en kg?"));
     const health = prompt("🐾 ¿Cuál es el estado de salud? (Sano, Enfermo, En tratamiento)");
             // 🖊️ Se valida que los campos no estén vacíos y que la edad y el peso sean números.
     if (!name || !species || isNaN(age) || isNaN(weight) || !health) {
@@ -77,6 +77,23 @@ function registerPet() {
     }, 2000);
 }
 
+            // 📋 Se listan todas las mascotas.
+function listPets() {
+            // 🖊️ Se valida que haya mascotas registradas.
+    if (pets.length === 0) {
+            // 💬 Se muestra un mensaje de error si no hay mascotas registradas.
+        alert("📭 No hay mascotas registradas.");
+        return;
+    }
+            // 💬 Se muestra un mensaje con la lista de mascotas.
+    let message = "📋 Lista de mascotas:\n\n";
+                // ➡️ Se recorren todas las mascotas y se agregan al mensaje.
+    pets.forEach((pet, index) => {
+        message += `${index + 1}. 🐾 ${pet.name} | ${pet.species} | ${pet.age} años | ${pet.weight}kg | ${pet.health}\n`;
+    });
+            // 💬 Se muestra el mensaje con la lista de mascotas.
+    alert(message);
+}
 
-    //🔥 Se inicia el programa.
+            //🔥 Se inicia el programa.
 mainMenu();
