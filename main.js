@@ -114,5 +114,30 @@ function searchPet() {
     }, 1500);
 }
 
+            // 🔄 Actualizar estado de salud
+function updateHealthStatus() {
+            // 🖊️ Se valida que haya mascotas registradas.
+    const name = prompt("✏️ Ingresa el nombre de la mascota para actualizar su estado de salud:");
+            // 🖊️ Se valida que el nombre no esté vacío.
+    if (!name) return;
+            // 💬 Se muestra un mensaje de búsqueda y se busca la mascota en el arreglo.
+    const pet = pets.find(p => p.name.toLowerCase() === name.toLowerCase());
+            // 🖊️ Se valida si se encontró la mascota.
+    if (!pet) {
+        alert("❌ Mascota no encontrada.");
+        return;
+    }
+            // 💬 Se muestra el estado de salud actual y se pide el nuevo estado.
+    const newHealth = prompt(`🩺 Estado actual: ${pet.health}\n\nIngresa el nuevo estado de salud:`);
+    if (!newHealth) return;
+            // 💬 Se muestra un mensaje de actualización y se actualiza el estado de salud.
+    alert("⏳ Actualizando información del veterinario...");
+            // 🕒 Se simula un retraso de 2 segundos.
+    setTimeout(() => {
+        pet.health = newHealth;
+            // 💬 Se muestra un mensaje de éxito.
+        alert(`✅ Estado de salud de ${pet.name} actualizado a "${newHealth}".`);
+    }, 2000);
+}
             //🔥 Se inicia el programa.
 mainMenu();
