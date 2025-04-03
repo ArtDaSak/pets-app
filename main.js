@@ -95,5 +95,24 @@ function listPets() {
     alert(message);
 }
 
+            // 🔍 Se busca una mascota por nombre con retardo
+function searchPet() {
+    const name = prompt("🔍 Ingresa el nombre de la mascota a buscar:");
+            // 🖊️ Se valida que el nombre no esté vacío.
+    if (!name) return;
+            // 💬 Se muestra un mensaje de búsqueda y se busca la mascota en el arreglo.
+    alert("⏳ Buscando en la base de datos...");
+            // 🕒 Se simula un retraso de 1.5 segundos.
+    setTimeout(() => {
+        const pet = pets.find(p => p.name.toLowerCase() === name.toLowerCase());
+            // 🖊️ Se valida si se encontró la mascota.
+        if (pet) {
+            alert(`✅ Mascota encontrada:\n🐾 ${pet.name} | ${pet.species} | ${pet.age} años | ${pet.weight}kg | ${pet.health}`);
+        } else {
+            alert("❌ Mascota no encontrada.");
+        }
+    }, 1500);
+}
+
             //🔥 Se inicia el programa.
 mainMenu();
