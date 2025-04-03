@@ -139,5 +139,24 @@ function updateHealthStatus() {
         alert(`✅ Estado de salud de ${pet.name} actualizado a "${newHealth}".`);
     }, 2000);
 }
+
+            // 🗑️ Eliminar una mascota por nombre
+function deletePet() {
+            // 🖊️ Se valida que haya mascotas registradas.
+    const name = prompt("🗑️ Ingresa el nombre de la mascota a eliminar:");
+            // 🖊️ Se valida que el nombre no esté vacío.
+    if (!name) return;
+            // 💬 Se muestra un mensaje de búsqueda y se busca la mascota en el arreglo.
+    const index = pets.findIndex(p => p.name.toLowerCase() === name.toLowerCase());
+            // 🖊️ Se valida si se encontró la mascota.
+    if (index === -1) {
+        alert("❌ Mascota no encontrada.");
+        return;
+    }
+            // 💬 Se muestra un mensaje de eliminación y se elimina la mascota del arreglo.
+    pets.splice(index, 1);
+    alert(`✅ Mascota ${name} eliminada correctamente.`);
+}
+
             //🔥 Se inicia el programa.
 mainMenu();
